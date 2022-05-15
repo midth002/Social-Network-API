@@ -12,6 +12,6 @@ router.route('/:userId').post(createThought)
 
 router.route('/:thoughtId').get(getSingleThought)
 
-router.route('/:userId/:thoughtId').put(updateThought);
+router.route('/:thoughtId/user/:userId').put(updateThought);
 
 module.exports = router;

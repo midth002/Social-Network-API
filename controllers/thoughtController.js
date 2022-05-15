@@ -43,8 +43,8 @@ module.exports = {
             { thoughtText: req.body.thoughtText }, 
             { new : true}
         )
-        .then((thought) => res.json(thought) 
+        .then((thought) => res.json(thought))
         .catch((e) => res.status(500).json(e))
-        )}
+        }
 
 }
