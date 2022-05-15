@@ -19,7 +19,20 @@ module.exports = {
           },
         createUser(req, res) {
             User.create(req.body)
-            .then((UserData) => res.json(UserData))
+            .then((user) => res.json(user))
+            .catch((e) => res.status(500).json(e))
+        }, 
+        updateUser(req, res) {
+            User.findOneAndUpdate(
+                { _id: req.params.id },
+                { $set: req.body}, 
+                { new : true}
+                )
+            .then((user) => 
+                !user
+                    ? res.status(404).json({ message: 'No user with this id to update on'})
+                    : res.json(user)
+                )
             .catch((e) => res.status(500).json(e))
         }
 
