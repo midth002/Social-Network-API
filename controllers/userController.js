@@ -16,8 +16,6 @@ module.exports = {
               )
               .catch((e) => res.json(e));
           },
-    
-
         createUser(req, res) {
             User.create(req.body)
             .then((UserData) => res.json(UserData))
