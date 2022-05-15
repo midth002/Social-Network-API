@@ -10,5 +10,14 @@ module.exports = {
         )
         .then((reaction) => res.json(reaction))
         .catch((e) => res.status(500).json(e))
+    }, 
+    removeReaction(req, res) { 
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId},
+            { $pull: {reactions: {reactionId: req.params.reactionId} }},
+            {new : true}
+        )
+        .then(() => res.status(200).json({ message : 'Reaction Removed'}))
+        .catch((e) => res.status(500).json(e))
     }
 }
