@@ -1,4 +1,6 @@
-const Thought = require('../models/Thought');
+const { ObjectId } = require('mongoose').Types; 
+const User = require('../models/User');
+const Thought = require('../models/Thought')
 
 module.exports = {
     getThoughts(req, res) {
@@ -18,7 +20,19 @@ module.exports = {
     },
     createThought(req, res) {
         Thought.create(req.body)
-        .then((thought) => res.json(thought))
+        //   console.log(req.body)
+        .then((thought) => {
+      return  User.findOneAndUpdate(
+                { _id: req.params.id},
+                { $addToSet: { thoughts: thought._id} },
+                { new : true}
+            );
+        })
+        .then((dbThought) => 
+            !dbThought
+                ? res.status(404).json({ message : 'No user with this id. Cannot create thought.'})
+                : res.json(dbThought)
+        )
         .catch((e) => {
             return res.status(500).json(e)
         })
