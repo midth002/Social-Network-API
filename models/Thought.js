@@ -6,6 +6,7 @@ const thoughtSchema = new Schema (
         thoughtText : {
             type : String, 
             required : true, 
+            trim: true,
             minlength : 1, 
             maxlength : 280
         }, 
@@ -26,7 +27,7 @@ const thoughtSchema = new Schema (
         toJSON: {
             getters: true,
         },
-        id: false,
+
     }
        
 );

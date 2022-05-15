@@ -9,6 +9,7 @@ module.exports = {
         getOneUser(req, res) {
             User.findOne({ _id: req.params.id })
               .select('-__v')
+              .populate('thoughts')
               .then((dbUser) => 
                 !dbUser
                   ? res.status(404).json({ message: 'No user found with this id!' })
