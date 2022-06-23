@@ -19,6 +19,10 @@
   ## Description
 
   Social networks have been such a big industry during this century. From Facebook, Twitter, Instagram and others out there. This application is a backend application working with mongoDB and mongoose to provide a non-relational database structure to a social network application. The database includes users, thoughts, friends, and reactions. The application also handles different routes using chaining to demostrate the different CRUD methods used in the backend.
+  
+  ## Technologies
+  
+  * NodeJs
 
   ## Screenshots
 
