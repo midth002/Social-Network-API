@@ -23,6 +23,11 @@
   ## Technologies
   
   * NodeJs
+  * MongoDB
+  * Mongoose Schemas
+  * REST API
+  * Insomnia
+  * Express
 
   ## Screenshots
 
